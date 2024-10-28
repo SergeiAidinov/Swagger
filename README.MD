@@ -1,0 +1,1 @@
+Открывается по адесу: http://localhost:8080/swagger-ui.html#/controller/sayHelloUsingGET

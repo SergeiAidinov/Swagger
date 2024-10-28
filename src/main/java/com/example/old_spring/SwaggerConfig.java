@@ -2,31 +2,25 @@ package com.example.old_spring;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import springfox.documentation.builders.PathSelectors;
-import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
-//@EnableSwagger2
-//@EnableWebMvc
+@EnableSwagger2
 public class SwaggerConfig {
 
     @Bean
-    public Docket api() {
+    public Docket docket() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                //.apis(RequestHandlerSelectors.basePackage("ru.yandex.incoming34.demo_swagger"))
-                .apis(RequestHandlerSelectors.any())
-                .paths(PathSelectors.any())
                 .build()
                 ;
     }
 
-    //@Bean
+    @Bean
     ApiInfo apiInfo() {
         return new ApiInfo(
                 "Swagger REST API для тестового задания",
@@ -36,3 +30,4 @@ public class SwaggerConfig {
         );
     }
 }
+
